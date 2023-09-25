@@ -1,0 +1,14 @@
+services:
+  front-end:
+    image: ece461l-project:front-end
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - '.:/react-app'
+      - '/react-app/node_modules'
+    ports:
+      - 3001:3000
+    environment:
+      - WATCHPACK_POLLING=true
+      - WDS_SOCKET_PORT=3001

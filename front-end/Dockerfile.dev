@@ -1,0 +1,15 @@
+FROM node:20 AS dev
+
+ENV NODE_ENV dev
+
+WORKDIR /react-app
+
+ENV PATH /react-app/node_modules/.bin:$PATH
+
+COPY package*.json /react-app
+
+RUN npm install
+
+COPY . .
+
+CMD npm start
